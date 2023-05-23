@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website Landing Page - With Background Video Slider | Travel</title>
+    <link rel="stylesheet" href="work.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <header>
+       
+            <a href="#" class="brand" style="margin-left: 90px; font-family: 'Satisfy', cursive; font-size: 60px;">chic</a>
+            <div class="menu-btn"  style="left: auto;">
+                <i class="fas fa-bars"  style="left: auto;"></i>
+              </div>
+              <div class="side-bar">
+                <div class="close-btn">
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="menu">
+                  <div class="item" ><a href="#"  class="hover-underline-animation">NOUVEAUTES</a></div>
+                  <div class="item">
+                    <a class="sub-btn" >ACCESSOIRES<i class="fas fa-angle-right dropdown" class="hover-underline-animation"></i></a>
+                    <div class="sub-menu" class="hover-underline-animation">
+                      <a href="sac.php" class="sub-item" class="hover-underline-animation" >SACS ET SACS A DOS</a>
+                      <a href="ceintures.php" class="sub-item" class="hover-underline-animation">CEINTURES</a>
+                      <a href="bijoux.php" class="sub-item" >BIJOUX</a>
+                      <a href="lunettes.php" class="sub-item">LUNETTES</a>
+                    </div>
+                  </div>
+                  <div class="item" class="hover-underline-animation"><a href="pantalon.php"  class="hover-underline-animation">PANTALONS</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="shoes.php"  class="hover-underline-animation">CHAUSSURES</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="jeans.php" class="hover-underline-animation">JEANS</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="robes.php" class="hover-underline-animation">ROBES</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="manteau.php" class="hover-underline-animation">MANTEAUX</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="chemise.php" class="hover-underline-animation">CHEMISE</a></div>
+                  <div class="item" class="hover-underline-animation"><a href="T_shirt.php" class="hover-underline-animation">PULL</a></div>
+                </div>
+            </div>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items" style="font-weight: bolder; font-size: 20px;">
+          <a href="index1.php">Home</a>
+          <a href="#">About</a>
+          <a href="#">Explore</a>
+          <a href="#">Contact</a>
+        </div>
+        
+      </div>
+
+    </header>
+
+    <section class="home">
+      <video class="video-slide active" src="4.mp4" autoplay muted loop></video>
+      
+    
+
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="slider-navigation">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        //menu silder
+        $(document).ready(function(){
+      //jquery for toggle sub menus
+      $('.sub-btn').click(function(){
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+      });
+
+      //jquery for expand and collapse the sidebar
+      $('.menu-btn').click(function(){
+        $('.side-bar').addClass('active');
+        $('.menu-btn').css("visibility", "hidden");
+      });
+
+      $('.close-btn').click(function(){
+        $('.side-bar').removeClass('active');
+        $('.menu-btn').css("visibility", "visible");
+      });
+    });
+    //Javacript for responsive navigation menu
+    const menuBtn = document.querySelector(".menu-btn");
+    const navigation = document.querySelector(".navigation");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      navigation.classList.toggle("active");
+    });
+
+    //Javacript for video slider navigation
+    const btns = document.querySelectorAll(".nav-btn");
+    const slides = document.querySelectorAll(".video-slide");
+    const contents = document.querySelectorAll(".content");
+
+    var sliderNav = function(manual){
+      btns.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+
+      contents.forEach((content) => {
+        content.classList.remove("active");
+      });
+
+      btns[manual].classList.add("active");
+      slides[manual].classList.add("active");
+      contents[manual].classList.add("active");
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        sliderNav(i);
+      });
+    });
+    </script>
+
+  </body>
+</html>
